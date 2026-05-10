@@ -1,0 +1,122 @@
+{
+    "editor.fontFamily": "'JetBrains Mono', 'bold', bold",
+    "editor.fontSize": 18,
+    "material-icon-theme.hidesExplorerArrows": true,
+    "workbench.tree.indent": 14,
+    "workbench.colorTheme": "Bearded Theme HC Ebony",
+    // "workbench.colorTheme": "Kanagawa Drag on",
+
+    // "editor.lineNumbers": "relative",
+
+    "explorer.confirmDragAndDrop": true,
+    "explorer.confirmDelete": true,
+
+    "workbench.statusBar.visible": false,
+
+    // Hide scrollbar and all overview ruler decorations
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.minimap.enabled": false,
+    "editor.matchBrackets": "never",
+    "editor.occurrencesHighlight": "off",
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.stickyScroll.enabled": false,
+
+    "workbench.colorCustomizations": {
+        "editorCursor.background": "#000000",
+        "editorOverviewRuler.wordHighlightStrongForeground": "#0000",
+        "editorOverviewRuler.selectionHighlightForeground": "#0000",
+        "editorOverviewRuler.rangeHighlightForeground": "#0000",
+        "editorOverviewRuler.wordHighlightForeground": "#0000",
+        "editorOverviewRuler.bracketMatchForeground": "#0000",
+        "editorOverviewRuler.findMatchForeground": "#0000",
+        "editorOverviewRuler.modifiedForeground": "#0000",
+        "editorOverviewRuler.deletedForeground": "#0000",
+        "editorOverviewRuler.warningForeground": "#0000",
+        "editorOverviewRuler.addedForeground": "#0000",
+        "editorOverviewRuler.errorForeground": "#0000",
+        "editorOverviewRuler.infoForeground": "#0000",
+        "editorOverviewRuler.border": "#0000",
+    },
+
+    "hediet.vscode-drawio.resizeImages": null,
+
+    "excalidraw.workspaceLibraryPath": ".",
+    "excalidraw.theme": "dark",
+
+    "chat.commandCenter.enabled": false,
+    "workbench.layoutControl.enabled": false,
+    "window.titleBarStyle": "native",
+    "window.menuBarVisibility": "toggle",
+
+    "window.zoomLevel": 1,
+
+    "explorer.decorations.badges": false,
+    // "git.decorations.enabled": false,
+    // "scm.diffDecorations": "none",
+
+    "editor.tabSize": 4,
+
+    // Always use manually defined indentation instead of auto-detecting from file content
+    "editor.detectIndentation": false,
+
+    // "workbench.editor.showTabs": "single",
+
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.cursorBlinking": "blink",
+
+    "workbench.startupEditor": "none",
+
+    // Append newline at end of file to avoid diff noise
+    "files.insertFinalNewline": true,
+
+    "workbench.tips.enabled": false,
+
+    // "editor.showFoldingControls": "never",
+
+    "editor.parameterHints.enabled": true,
+    "editor.hover.enabled": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.links": true,
+
+    "editor.renderWhitespace": "none",
+    "editor.renderLineHighlight": "none",
+    "editor.guides.indentation": false,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.enableStickyScroll": false,
+
+    "files.autoSave": "afterDelay",
+    "update.mode": "none",
+    "extensions.ignoreRecommendations": false,
+
+    "terminal.integrated.fontSize": 18,
+    "terminal.integrated.fontWeight": "normal",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "security.workspace.trust.untrustedFiles": "open",
+    "redhat.telemetry.enabled": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+
+    "workbench.panel.defaultLocation": "right",
+    "window.commandCenter": false,
+    "workbench.secondarySideBar.location": "right",
+    "workbench.activityBar.location": "hidden",
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "xml.symbols.maxItemsComputed": 500000,
+    "xml.server.vmargs": "-Xmx128M"
+}

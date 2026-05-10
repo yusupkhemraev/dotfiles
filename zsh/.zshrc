@@ -39,8 +39,6 @@ bindkey '^[[1;4C' __sel_wright
 bindkey '^[[1;2H' __sel_home
 bindkey '^[[1;2F' __sel_end
 
-eval "$(rbenv init - zsh)"
-
 autoload -U compinit && compinit
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'

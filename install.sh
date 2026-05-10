@@ -50,4 +50,7 @@ backup_and_link "$DOTFILES_DIR/ghostty/themes"   "$HOME/.config/ghostty/themes"
 # tmux
 backup_and_link "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 
+# vscodium
+backup_and_link "$DOTFILES_DIR/vscodium/settings.json" "$HOME/Library/Application Support/VSCodium/User/settings.json"
+
 info "Done."
