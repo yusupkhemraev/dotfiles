@@ -1,0 +1,441 @@
+format = """
+$directory\
+${custom.home}\
+$git_branch\
+$git_status\
+$fill\
+$python\
+$lua\
+$nodejs\
+$golang\
+$haskell\
+$rust\
+$ruby\
+$aws\
+${custom.docker}${custom.compose}\
+$docker_context\
+$jobs\
+$line_break\
+$character"""
+
+
+add_newline = false
+# palette = "nord"
+palette = "catppuccin_mocha"
+
+[directory]
+style = 'bold fg:dark_blue'
+format = '[$path ]($style)'
+truncation_length = 3
+truncation_symbol = '…/'
+truncate_to_repo = false
+read_only = " 󰌾"
+
+[directory.substitutions]
+'Documents' = '󰈙'
+'Downloads' = ' '
+'Music' = ' '
+'Pictures' = ' '
+
+[custom.home]
+detect_folders = ['.config']
+when = 'test "$PWD" = "$HOME"'
+command = 'printf ""'
+style = 'fg:dark_blue'
+format = '[$output ]($style)'
+
+[git_branch]
+style = 'fg:green'
+symbol = ' '
+format = '[on](white) [$symbol$branch ]($style)'
+
+[git_status]
+style = 'fg:green'
+format = '([$all_status$ahead_behind]($style) )'
+
+[fill]
+symbol = ''
+
+[python]
+style = 'teal'
+symbol = ' '
+pyenv_version_name = false
+format = '[$symbol($version )(\($virtualenv\) )]($style)'
+detect_files = ['.python-version', 'Pipfile', '__init__.py', 'pyproject.toml', 'requirements.txt', 'setup.py', 'tox.ini', 'uv.lock']
+python_binary = ['python3', 'python']
+
+[custom.venv]
+description = "venv present"
+detect_folders = ['.venv', 'venv']
+command = 'printf ""'
+style = 'teal'
+format = '[󰌠 ]($style)'
+
+[custom.uv]
+description = "uv project"
+detect_files = ['uv.lock']
+command = 'printf "uv"'
+style = 'teal'
+format = '[$output ]($style)'
+
+[lua]
+format = '[$symbol($version )]($style)'
+symbol = ' '
+
+[nodejs]
+style = 'blue'
+# symbol = ' '
+symbol = ' '
+
+[golang]
+style = 'blue'
+# symbol = ' '
+symbol = " "
+
+[haskell]
+style = 'blue'
+symbol = " "
+
+[rust]
+style = 'orange'
+symbol = "󱘗 "
+
+[ruby]
+style = 'blue'
+symbol = " "
+
+[package]
+# symbol = '󰏗 '
+symbol = '󰏗 '
+
+[aws]
+symbol = ' '
+style = 'yellow'
+format = '[$symbol($profile )(\[$duration\] )]($style)'
+
+# [docker_context]
+# symbol = ' '
+# style = 'fg:#06969A'
+# format = '[$symbol$context ]($style)'
+# only_with_files = true
+# detect_files = [
+#   'Dockerfile',
+#   'compose.yml', 'compose.yaml',
+#   'docker-compose.yml', 'docker-compose.yaml',
+#   'docker-compose.base.yml',
+#   'docker-compose.ci.yml',
+#   'docker-compose.local.yml',
+#   'docker-compose.prod.yml',
+# ]
+
+# [custom.docker]
+# description = "docker project"
+# disabled = true
+# detect_files = [
+#   'Dockerfile',
+#   'docker-compose.base.yml',
+#   'docker-compose.ci.yml',
+#   'docker-compose.local.yml',
+#   'docker-compose.prod.yml',
+#   'docker-compose.yml',
+#   'docker-compose.yaml',
+#   'compose.yml',
+#   'compose.yaml',
+# ]
+# command = "printf ''"
+# style = 'fg:#06969A'
+# format = '[ ]($style)'
+
+# [custom.compose]
+# description = "docker compose"
+# detect_files = [
+#   'docker-compose.base.yml',
+#   'docker-compose.ci.yml',
+#   'docker-compose.local.yml',
+#   'docker-compose.prod.yml',
+#   'docker-compose.yml',
+#   'docker-compose.yaml',
+#   'compose.yml',
+#   'compose.yaml',
+# ]
+# command = "printf ''"
+# style = 'fg:#06969A'
+# format = '[󰡨 ]($style)'
+
+
+[custom.docker]
+description = "docker client version (+context if not default)"
+detect_files = [
+  'Dockerfile',
+  'compose.yml', 'compose.yaml',
+  'docker-compose.yml', 'docker-compose.yaml',
+  'docker-compose.base.yml',
+  'docker-compose.ci.yml',
+  'docker-compose.local.yml',
+  'docker-compose.prod.yml',
+]
+# when = "command -v docker >/dev/null 2>&1"
+# command = """
+# ver=$(docker --version 2>/dev/null | awk '{gsub(/,/, "", $3); print $3}')
+# ctx=$(docker context show 2>/dev/null)
+# if [ -n "$ctx" ] && [ "$ctx" != "default" ] && [ "$ctx" != "desktop-linux" ]; then
+#   printf "%s@%s" "$ver" "$ctx"
+# else
+#   printf "%s" "$ver"
+# fi
+# """
+style = 'fg:#06969A'
+format = '[󰡨 $output ]($style)'
+
+[custom.compose]
+description = "docker compose version"
+detect_files = [
+  'compose.yml', 'compose.yaml',
+  'docker-compose.yml', 'docker-compose.yaml',
+  'docker-compose.base.yml',
+  'docker-compose.ci.yml',
+  'docker-compose.local.yml',
+  'docker-compose.prod.yml',
+]
+# when = "command -v docker >/dev/null 2>&1"
+# command = "docker compose version --short 2>/dev/null || docker-compose version --short 2>/dev/null"
+style = 'fg:#06969A'
+# format = '[󱁐 $output ]($style)'
+# format = '[󰡨 ]($style)'
+
+
+[jobs]
+symbol = ' '
+style = 'red'
+number_threshold = 1
+format = '[$symbol]($style)'
+
+[cmd_duration]
+min_time = 500
+style = 'fg:gray'
+format = '[$duration]($style)'
+
+# --------------------------------
+
+[buf]
+symbol = " "
+
+[bun]
+symbol = " "
+
+[c]
+symbol = " "
+
+[cpp]
+symbol = " "
+
+[cmake]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[crystal]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[deno]
+symbol = " "
+
+# [docker_context]
+# symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fennel]
+symbol = " "
+
+[fortran]
+symbol = " "
+
+
+[git_commit]
+tag_symbol = '  '
+
+[gradle]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[kotlin]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[ocaml]
+symbol = " "
+
+
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+AOSC = " "
+Arch = " "
+Artix = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Elementary = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Ios = "󰀷 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+Zorin = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[pijul_channel]
+symbol = " "
+
+[pixi]
+symbol = "󰏗 "
+
+
+[rlang]
+symbol = "󰟔 "
+
+[scala]
+symbol = " "
+
+[status]
+symbol = " "
+
+[swift]
+symbol = " "
+
+[xmake]
+symbol = " "
+
+[zig]
+symbol = " "
+
+# ---------------------------
+
+
+[palettes.nord]
+dark_blue = '#5E81AC'
+blue = '#81A1C1'
+teal = '#88C0D0'
+red = '#BF616A'
+orange = '#D08770'
+green = '#A3BE8C'
+yellow = '#EBCB8B'
+purple = '#B48EAD'
+gray = '#434C5E'
+black = '#2E3440'
+white='#D8DEE9'
+
+[palettes.onedark]
+dark_blue='#61afef'
+blue='#56b6c2'
+red='#e06c75'
+green='#98c379'
+purple='#c678dd'
+cyan='#56b6c2'
+orange='#be5046'
+yellow='#e5c07b'
+gray='#828997'
+white ='#abb2bf'
+black='#2c323c'
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"

@@ -1,0 +1,17 @@
+shell-integration-features = ssh-terminfo
+
+macos-option-as-alt = true
+mouse-hide-while-typing = true
+theme = catppuccin-mocha.conf
+
+background = #282c35
+background-opacity = 0.85
+background-blur-radius = 20
+
+window-decoration = true
+window-height = 28
+window-width = 100
+
+font-family = "JetBrains Mono"
+font-style = bold
+font-size = 16
