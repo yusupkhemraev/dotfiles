@@ -12,6 +12,7 @@ My personal macOS dotfiles.
 | `ghostty/` | `config`, `themes/` |
 | `tmux/` | `tmux.conf` |
 | `vscodium/` | `settings.json` |
+| `Brewfile` | Homebrew packages, casks, VSCodium extensions |
 
 ## Install
 
