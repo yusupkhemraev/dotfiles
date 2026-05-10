@@ -24,13 +24,17 @@ cd ~/dev/dotfiles
 
 The script creates symlinks from `~` to the repo, backing up any existing files to `~/.dotfiles_backup/`.
 
-## Dependencies
+### Homebrew packages
 
-- [Starship](https://starship.rs) — prompt
-- [WezTerm](https://wezfurlong.org/wezterm) — terminal
-- [Ghostty](https://ghostty.org) — terminal
-- [tmux](https://github.com/tmux/tmux) + [tpm](https://github.com/tmux-plugins/tpm) — multiplexer
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) — via Homebrew
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) — via Homebrew
-- [VSCodium](https://vscodium.com) — editor
-- [carapace](https://carapace.sh) — shell completions
+Install everything from `Brewfile`:
+
+```sh
+brew bundle
+```
+
+### Manual installs
+
+- [PuntoSwitcher](https://yandex.ru/soft/punto/) — keyboard layout switcher
+- [PyCharm](https://www.jetbrains.com/pycharm/) — Python IDE
+- [GoLand](https://www.jetbrains.com/goland/) — Go IDE
+- [RustRover](https://www.jetbrains.com/rust/) — Rust IDE
