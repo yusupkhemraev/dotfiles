@@ -2,3 +2,7 @@
 *.zwc
 *.zwc.old
 .idea/
+
+# nushell generated/runtime files
+nushell/init-cache/
+nushell/history.txt

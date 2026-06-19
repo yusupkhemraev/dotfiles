@@ -34,6 +34,10 @@ backup_and_link "$DOTFILES_DIR/zsh/.zshrc"   "$HOME/.zshrc"
 backup_and_link "$DOTFILES_DIR/zsh/.zprofile" "$HOME/.zprofile"
 backup_and_link "$DOTFILES_DIR/zsh/.zshenv"   "$HOME/.zshenv"
 
+# nushell (XDG_CONFIG_HOME points here via .zshenv)
+backup_and_link "$DOTFILES_DIR/nushell/config.nu" "$HOME/.config/nushell/config.nu"
+backup_and_link "$DOTFILES_DIR/nushell/env.nu"    "$HOME/.config/nushell/env.nu"
+
 # starship
 backup_and_link "$DOTFILES_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
 

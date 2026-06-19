@@ -48,3 +48,17 @@ if [ -f "$HOME/yandex-cloud/path.bash.inc" ]; then source "$HOME/yandex-cloud/pa
 if [ -f "$HOME/yandex-cloud/completion.zsh.inc" ]; then source "$HOME/yandex-cloud/completion.zsh.inc"; fi
 
 eval "$(starship init zsh)"
+
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+
+# Launch Nushell as the interactive shell.
+# zsh sets up the environment first (.zshenv exports XDG_CONFIG_HOME, .zshrc sets PATH),
+# then exec replaces the process with nu, which inherits all of it.
+# Escape hatch: run `zsh` inside nu — the NU_LAUNCHED flag prevents re-entering nu.
+if [[ -o interactive && -z "$NU_LAUNCHED" ]]; then
+    export NU_LAUNCHED=1
+    exec nu
+fi
+
