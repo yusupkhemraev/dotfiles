@@ -7,6 +7,7 @@ My personal macOS dotfiles.
 | Directory | Config |
 |-----------|--------|
 | `zsh/` | `.zshrc`, `.zprofile`, `.zshenv` |
+| `nushell/` | `config.nu`, `env.nu` |
 | `starship/` | `starship.toml` |
 | `wezterm/` | `wezterm.lua`, `config.lua`, `events.lua` |
 | `ghostty/` | `config`, `themes/` |
@@ -23,6 +24,20 @@ cd ~/dev/dotfiles
 ```
 
 The script creates symlinks from `~` to the repo, backing up any existing files to `~/.dotfiles_backup/`.
+
+### Nushell theme
+
+The [Catppuccin Mocha](https://github.com/catppuccin/nushell) theme is downloaded
+automatically by `env.nu` into `nushell/themes/` on first launch (git-ignored, not
+committed). To update it, delete the file and restart Nushell:
+
+```nu
+rm ($nu.default-config-dir | path join "themes" "catppuccin_mocha.nu")
+exec nu
+```
+
+Switch flavor by changing `$theme_flavor` in `env.nu` and the `source` line in `config.nu`
+(`latte` | `frappe` | `macchiato` | `mocha`).
 
 ### Homebrew packages
 

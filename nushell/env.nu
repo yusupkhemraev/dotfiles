@@ -26,3 +26,15 @@ for entry in ($inits | transpose name generator) {
         do $entry.generator | save -f $target
     }
 }
+
+# Catppuccin theme — скачивается один раз, если файла нет (как init'ы выше).
+# Сменить вариант: поменяй $theme_flavor (latte | frappe | macchiato | mocha)
+# и обнови source-строку в config.nu.
+# Обновить тему: rm ($nu.default-config-dir | path join "themes" "catppuccin_mocha.nu")
+let theme_flavor = "mocha"
+let themes_dir = ($nu.default-config-dir | path join "themes")
+mkdir $themes_dir
+let theme_file = ($themes_dir | path join $"catppuccin_($theme_flavor).nu")
+if not ($theme_file | path exists) {
+    http get $"https://raw.githubusercontent.com/catppuccin/nushell/main/themes/catppuccin_($theme_flavor).nu" | save -f $theme_file
+}

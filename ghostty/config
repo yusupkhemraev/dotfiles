@@ -1,17 +1,28 @@
-shell-integration-features = ssh-terminfo
+# ~/.config/ghostty/config
+
+#shell-integration-features = ssh-terminfo
+shell-integration-features = ssh-env,sudo
 
 macos-option-as-alt = true
 mouse-hide-while-typing = true
 theme = catppuccin-mocha.conf
 
+#term = xterm-256color
+
 background = #282c35
 background-opacity = 0.85
 background-blur-radius = 20
+
+# background-image = /Users/yusupkhemraev/Pictures/makima.png
+background-image-opacity = 0.7
+background-image-position = center
+background-image-fit = cover
+background-image-repeat = false
 
 window-decoration = true
 window-height = 28
 window-width = 100
 
-font-family = "JetBrains Mono"
+font-family = "JetBrainsMono Nerd Font"
 font-style = bold
 font-size = 16

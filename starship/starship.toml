@@ -64,6 +64,14 @@ format = '[$symbol($version )(\($virtualenv\) )]($style)'
 detect_files = ['.python-version', 'Pipfile', '__init__.py', 'pyproject.toml', 'requirements.txt', 'setup.py', 'tox.ini', 'uv.lock']
 python_binary = ['python3', 'python']
 
+#[custom.claude]
+#description = "Claude Code rate limits (5h / 7d), захваченные из statusline CC"
+#when = 'test -s "${XDG_CACHE_HOME:-$HOME/.cache}/claude-usage"'
+#command = 'cat "${XDG_CACHE_HOME:-$HOME/.cache}/claude-usage"'
+#style = 'teal'
+#format = ' [󰧑 $output]($style)'
+#format = '[· 󰚩 $output ]($style)'
+
 [custom.venv]
 description = "venv present"
 detect_folders = ['.venv', 'venv']
@@ -205,8 +213,11 @@ style = 'fg:#06969A'
 
 
 [jobs]
+disabled = true
 symbol = ' '
 style = 'red'
+# Disabled: atuin spawns a background job each prompt to record history async,
+# which made the jobs indicator (cog) show up permanently.
 number_threshold = 1
 format = '[$symbol]($style)'
 

@@ -85,6 +85,9 @@ alias d = docker
 alias dc = docker compose
 alias dps = docker ps
 
+# Claude Code
+alias cc = claude
+
 # --- Tool init (cached in env.nu) --------------------------------------------
 # Пути должны быть const, чтобы `source` отработал на этапе парсинга.
 
@@ -94,3 +97,9 @@ source ($cache_dir | path join "zoxide.nu")
 source ($cache_dir | path join "starship.nu")
 source ($cache_dir | path join "carapace.nu")
 source ($cache_dir | path join "atuin.nu")   # перехватывает Ctrl-R для поиска по истории
+
+# --- Theme -------------------------------------------------------------------
+# Catppuccin Mocha. Мутирует $env.config.color_config, поэтому подключается
+# после блока $env.config выше, иначе тема была бы затёрта.
+const themes_dir = ($nu.default-config-dir | path join "themes")
+source ($themes_dir | path join "catppuccin_mocha.nu")
