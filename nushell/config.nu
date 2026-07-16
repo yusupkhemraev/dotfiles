@@ -98,6 +98,12 @@ source ($cache_dir | path join "starship.nu")
 source ($cache_dir | path join "carapace.nu")
 source ($cache_dir | path join "atuin.nu")   # перехватывает Ctrl-R для поиска по истории
 
+
+const ghostty_nu = "/Applications/Ghostty.app/Contents/Resources/ghostty/shell-integration/nushell/vendor/autoload/ghostty.nu"
+source $ghostty_nu
+use ghostty *
+
+
 # --- Theme -------------------------------------------------------------------
 # Catppuccin Mocha. Мутирует $env.config.color_config, поэтому подключается
 # после блока $env.config выше, иначе тема была бы затёрта.

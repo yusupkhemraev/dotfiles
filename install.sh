@@ -54,7 +54,15 @@ backup_and_link "$DOTFILES_DIR/ghostty/themes"   "$HOME/.config/ghostty/themes"
 # tmux
 backup_and_link "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.config/tmux/tmux.conf"
 
+# nvim
+backup_and_link "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+
 # vscodium
 backup_and_link "$DOTFILES_DIR/vscodium/settings.json" "$HOME/Library/Application Support/VSCodium/User/settings.json"
+
+# zed
+backup_and_link "$DOTFILES_DIR/zed/settings.json" "$HOME/.config/zed/settings.json"
+backup_and_link "$DOTFILES_DIR/zed/keymap.json"   "$HOME/.config/zed/keymap.json"
+backup_and_link "$DOTFILES_DIR/zed/tasks.json"    "$HOME/.config/zed/tasks.json"
 
 info "Done."

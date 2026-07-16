@@ -1,19 +1,24 @@
 {
+    // Установить собственный шрифт и его размеры
     "editor.fontFamily": "'JetBrains Mono', 'bold', bold",
     "editor.fontSize": 18,
     "material-icon-theme.hidesExplorerArrows": true,
     "workbench.tree.indent": 14,
+    // Установить тему по дефолту
     "workbench.colorTheme": "Bearded Theme HC Ebony",
     // "workbench.colorTheme": "Kanagawa Drag on",
 
+    // Отсчет строчки относительно текущего курсора
     // "editor.lineNumbers": "relative",
 
+    // Запрашивать подтверждение на удаление и Drag&Drop
     "explorer.confirmDragAndDrop": true,
     "explorer.confirmDelete": true,
 
+    // Убирать статусбар снизу
     "workbench.statusBar.visible": false,
 
-    // Hide scrollbar and all overview ruler decorations
+    // Убираем виджет справа для скролла
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollbar.vertical": "hidden",
     "editor.minimap.enabled": false,
@@ -40,55 +45,82 @@
         "editorOverviewRuler.border": "#0000",
     },
 
+    // Настройка drawio
     "hediet.vscode-drawio.resizeImages": null,
 
+    // Настройка excalidraw по дефолту
     "excalidraw.workspaceLibraryPath": ".",
     "excalidraw.theme": "dark",
 
+    // Отключаем панель управления окном
     "chat.commandCenter.enabled": false,
     "workbench.layoutControl.enabled": false,
     "window.titleBarStyle": "native",
     "window.menuBarVisibility": "toggle",
 
+    // Установить дефолтный размер для редактора
     "window.zoomLevel": 1,
 
+    // Отключаем лишние декорации и метки
     "explorer.decorations.badges": false,
     // "git.decorations.enabled": false,
     // "scm.diffDecorations": "none",
 
+    // Установить длину одного tab
     "editor.tabSize": 4,
 
-    // Always use manually defined indentation instead of auto-detecting from file content
+    // Всегда использовать те отступы, которые заданы вручную (tabSize, insertSpaces и т.п.), а не угадывать.
     "editor.detectIndentation": false,
 
+    // Не показывать все открытые вкладки
     // "workbench.editor.showTabs": "single",
 
+    // Настройка курсора
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.cursorBlinking": "blink",
 
+    // По дефолту открывать пустую страницу
     "workbench.startupEditor": "none",
 
-    // Append newline at end of file to avoid diff noise
+    // Добавлять одну пустую строку в конец файла чтобы избежать ошибоки
     "files.insertFinalNewline": true,
 
+    // Отключаем окно с помощью для новичков
     "workbench.tips.enabled": false,
 
+    // Убрать значок для сворачивания кода
     // "editor.showFoldingControls": "never",
 
+    // Отключить вывод сигнатуры функции
     "editor.parameterHints.enabled": true,
     "editor.hover.enabled": true,
     "files.trimTrailingWhitespace": true,
     "editor.links": true,
 
+    // Не показывает пробелы, табы, перевод строки и т.п. символы в редакторе
     "editor.renderWhitespace": "none",
+
+    // Отключает подсветку активной строки
     "editor.renderLineHighlight": "none",
+
+    // Отключает вертикальные линии отступов в редакторе
     "editor.guides.indentation": false,
+
+    // Убирает вертикальные линии отступов в дереве файлов
     "workbench.tree.renderIndentGuides": "none",
+
+    // Отключаем прилипание заголовка в деревьях
     "workbench.tree.enableStickyScroll": false,
 
+    // Автосохранение файлов через короткую паузу после редактирования
     "files.autoSave": "afterDelay",
+
+    // Отключает автообновления VS Code / VSCodium
     "update.mode": "none",
+
+    // Отключает всплывающие предложения установить расширения
     "extensions.ignoreRecommendations": false,
+
 
     "terminal.integrated.fontSize": 18,
     "terminal.integrated.fontWeight": "normal",
@@ -117,6 +149,16 @@
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
+    "kilo-code.allowedCommands": [
+        "git log",
+        "git diff",
+        "git show"
+    ],
+    "kilo-code.deniedCommands": [],
+    "claudeCode.preferredLocation": "panel",
     "xml.symbols.maxItemsComputed": 500000,
-    "xml.server.vmargs": "-Xmx128M"
+    "xml.server.vmargs": "-Xmx128M",
+    "biome.suggestInstallingGlobally": false
+
+
 }

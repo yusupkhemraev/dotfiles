@@ -10,6 +10,8 @@
 $env.EDITOR = "nvim"
 $env.VISUAL = "nvim"
 
+$env.SSL_CERT_FILE = (python3.11 -m certifi | str trim)
+
 let cache_dir = ($nu.default-config-dir | path join "init-cache")
 mkdir $cache_dir
 

@@ -1,28 +1,41 @@
 # ~/.config/ghostty/config
 
-#shell-integration-features = ssh-terminfo
-shell-integration-features = ssh-env,sudo
+
+#shell-integration = detect
+command = nu
+shell-integration = nushell
+
+shell-integration-features = ssh-terminfo,sudo
 
 macos-option-as-alt = true
+macos-titlebar-style = transparent
+#macos-non-native-fullscreen = true
+#macos-non-native-fullscreen = padded-notch
+
 mouse-hide-while-typing = true
-theme = catppuccin-mocha.conf
 
-#term = xterm-256color
+theme = catppuccin-espresso-blur-light.conf
 
-background = #282c35
-background-opacity = 0.85
-background-blur-radius = 20
+#custom-shader = shaders/bettercrt.glsl
+#custom-shader = shaders/bloom025.glsl
+#custom-shader = shaders/retro-terminal.glsl
 
-# background-image = /Users/yusupkhemraev/Pictures/makima.png
+#background = #282c35
+# background-opacity is set per-theme (espresso-blur variants). Uncomment to force a global value.
+#background-opacity = 0.85
+background-blur-radius = 25
+
 background-image-opacity = 0.7
+
 background-image-position = center
 background-image-fit = cover
 background-image-repeat = false
 
 window-decoration = true
-window-height = 28
+window-height = 30
 window-width = 100
 
 font-family = "JetBrainsMono Nerd Font"
 font-style = bold
-font-size = 16
+font-size = 15
+
