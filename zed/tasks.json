@@ -1,8 +1,7 @@
 [
     {
         "label": "FastAPI",
-        "command": "uv run uvicorn app.main:app --reload --no-access-log",
-        "cwd": "/Users/yusupkhemraev/dev/paydo-api",
+        "command": "cd ~/dev/paydo-api && uv run uvicorn app.main:app --reload --no-access-log",
         "use_new_terminal": false,
         "allow_concurrent_runs": false,
         "reveal": "always",
@@ -15,8 +14,7 @@
     },
     {
         "label": "Taskiq Worker",
-        "command": "uv run taskiq worker --fs-discover --tasks-pattern \"**/app/tasks/*.py\" --log-level=INFO app.core.taskiq_broker:taskiq_broker",
-        "cwd": "/Users/yusupkhemraev/dev/paydo-api",
+        "command": "cd ~/dev/paydo-api && uv run taskiq worker --fs-discover --tasks-pattern \"**/app/tasks/*.py\" --log-level=INFO app.core.taskiq_broker:taskiq_broker",
         "use_new_terminal": false,
         "allow_concurrent_runs": false,
         "reveal": "always",
@@ -29,8 +27,7 @@
     },
     {
         "label": "Taskiq Scheduler",
-        "command": "uv run taskiq scheduler --fs-discover --tasks-pattern \"**/app/tasks/*.py\" --log-level=INFO app.core.taskiq_broker:taskiq_scheduler",
-        "cwd": "/Users/yusupkhemraev/dev/paydo-api",
+        "command": "cd ~/dev/paydo-api && uv run taskiq scheduler --fs-discover --tasks-pattern \"**/app/tasks/*.py\" --log-level=INFO app.core.taskiq_broker:taskiq_scheduler",
         "use_new_terminal": false,
         "allow_concurrent_runs": false,
         "reveal": "always",
@@ -44,7 +41,6 @@
     {
         "label": "Stop Paydo Services",
         "command": "pkill -f 'uvicorn app.main:app|taskiq worker|taskiq scheduler'",
-        "cwd": "/Users/yusupkhemraev/dev/paydo-api",
         "shell": "system",
     },
 ]
