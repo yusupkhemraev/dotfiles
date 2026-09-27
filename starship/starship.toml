@@ -22,6 +22,7 @@ $character"""
 add_newline = false
 # palette = "nord"
 palette = "catppuccin_mocha"
+command_timeout = 2000
 
 [directory]
 style = 'bold fg:dark_blue'

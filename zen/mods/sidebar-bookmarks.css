@@ -1,0 +1,67 @@
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Bookmark toolbar */
+#PlacesToolbarItems {
+  justify-content: space-around !important;
+  height: var(--tab-min-height) !important;
+  contain: inline-size !important;
+  > toolbarbutton {
+    min-width: 0 !important;
+  }
+  .toolbarbutton-text[value=""] {
+    display: none !important;
+  }
+}
+@media (-moz-pref("zen.sidebar.bookmarks.overflow", true)) {
+  #PlacesToolbarItems {
+    justify-content: flex-start !important;
+    > toolbarbutton {
+      min-width: initial !important;
+    }
+  }
+}
+#PlacesChevronPopup,
+#PlacesToolbarItems {
+  .menu-highlightable-text {
+    display: none !important;
+  }
+  .menu-accel {
+    width: fit-content !important;
+  }
+}
+#personal-bookmarks {
+  background: none !important;
+}
+#PlacesChevron .toolbarbutton-text {
+  display: none !important;
+}
+
+/* Hide folder icon */
+@media (-moz-pref("zen.sidebar.bookmarks.hide-folder-icon", true)) {
+  #PlacesToolbarItems .toolbarbutton-icon[type="menu"] {
+    display: none !important;
+  }
+  #PlacesToolbarItems > .bookmark-item {
+    flex: 1 1 auto !important;
+    min-width: max-content !important;
+  }
+}
+
+/* Single toolbar mode */
+[zen-single-toolbar="true"] #TabsToolbar-customization-target:has(#personal-bookmarks) {
+  padding-top: 6px !important;
+}
+
+/* Customization mode */
+[customizing] {
+  #TabsToolbar-customization-target {
+    visibility: visible !important;
+    border: 1px dashed !important;
+    border-radius: 2px !important;
+    margin-top: 10px !important;
+    margin-right: 2px !important;
+  }
+  #tabbrowser-tabs > * {
+    display: none !important;
+  }
+}

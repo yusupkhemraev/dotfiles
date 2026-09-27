@@ -5,8 +5,10 @@
 command = nu
 shell-integration = nushell
 
-shell-integration-features = ssh-terminfo,sudo
+shell-integration-features = ssh-terminfo,ssh-env
 
+macos-icon = custom
+macos-custom-icon = ~/.config/ghostty/icons/ghostty-catppuccin-frappe.icns
 macos-option-as-alt = true
 macos-titlebar-style = transparent
 #macos-non-native-fullscreen = true

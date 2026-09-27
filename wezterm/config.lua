@@ -13,7 +13,7 @@ config.window_decorations = "RESIZE" -- INTEGRATED_BUTTONS RESIZE
 config.check_for_updates = false
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = false
-config.font_size = 16
+config.font_size = 18
 config.initial_cols = 120
 config.initial_rows = 35
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })

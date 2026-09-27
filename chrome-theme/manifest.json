@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "version": "1.2.0",
+  "name": "Catppuccin Espresso (Blur) [Light]",
+  "description": "Espresso (Blur) [Light] — flat port of the Zed theme (Chrome UI cannot do blur/transparency, so black glass is flattened to near-black).",
+  "theme": {
+    "colors": {
+      "frame": [0, 0, 0],
+      "frame_inactive": [0, 0, 0],
+      "toolbar": [20, 21, 31],
+      "toolbar_text": [202, 211, 245],
+      "toolbar_button_icon": [202, 211, 245],
+      "omnibox_background": [10, 10, 10],
+      "omnibox_text": [202, 211, 245],
+      "ntp_background": [10, 10, 10],
+      "ntp_text": [202, 211, 245],
+      "ntp_link": [198, 160, 246],
+      "tab_text": [202, 211, 245],
+      "tab_background_text": [128, 135, 162],
+      "tab_loading": [198, 160, 246],
+      "bookmark_text": [202, 211, 245],
+      "button_background": [73, 77, 100]
+    },
+    "tints": {
+      "background_tab": [-1, -1, 0.35]
+    },
+    "properties": {
+      "ntp_logo_alternate": 1
+    }
+  }
+}

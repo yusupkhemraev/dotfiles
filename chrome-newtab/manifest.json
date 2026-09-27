@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "name": "Espresso New Tab",
+  "description": "Minimal Catppuccin Espresso (Blur) new tab page — clock and search.",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}

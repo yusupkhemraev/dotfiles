@@ -1,0 +1,168 @@
+/* ==========================================================================
+   Catppuccin Espresso (Blur) [Light] — Zen browser theme
+   Exact colors from https://github.com/jenslys/zed-catppuccin-blur
+   (theme "Catppuccin Espresso (Blur) [Light]" — a dark, black-glass theme).
+
+   The theme is near-black translucent glass over the macOS system blur, with
+   mauve/lavender accents. Requires (set via zen/user.js):
+     toolkit.legacyUserProfileCustomizations.stylesheets = true
+     browser.tabs.allow_transparent_browser = true
+   ========================================================================== */
+
+/* Bookmarks toolbar in the sidebar — https://github.com/ClixTW/zen-sidebar-bookmarks
+   @import must precede all other rules. */
+@import "mods/sidebar-bookmarks.css";
+
+:root {
+    /* --- exact Zed style values ----------------------------------------- */
+    --esp-bg:            rgba(0, 0, 0, 0.60);   /* background          #00000099 */
+    --esp-surface:       rgba(0, 0, 0, 0.55);   /* surface.background  #0000008c */
+    --esp-elevated:      #0a0a0a;               /* elevated_surface    #0a0a0a   */
+    --esp-element:       #181926;               /* element.background  #181926   */
+    --esp-hover:         #363a4f;               /* element.hover       #363a4f   */
+    --esp-selected:      rgba(54, 58, 79, 0.30);/* element.selected    #363a4f4d */
+    --esp-tab-active:    rgba(54, 58, 79, 0.50);/* active tab — lifted surface0 for contrast */
+    --esp-ghost-hover:   rgba(10, 10, 10, 0.56);/* ghost_element.hover #0a0a0a90 */
+
+    --esp-border:        rgba(54, 58, 79, 0.08);/* border              #363a4f15 */
+    --esp-border-focus:  #b7bdf8;               /* border.focused (lavender)     */
+
+    --esp-text:          #cad3f5;               /* text                          */
+    --esp-text-muted:    #b8c0e0;               /* text.muted                    */
+    --esp-placeholder:   #5b6078;               /* text.placeholder              */
+    --esp-accent:        #c6a0f6;               /* text.accent (mauve)           */
+    --esp-scrollbar:     rgba(128, 135, 162, 0.50); /* scrollbar.thumb #8087a280 */
+
+    /* --- Firefox lightweight-theme (lwt) vars --------------------------- */
+    --lwt-accent-color: #000000 !important;
+    --lwt-text-color: var(--esp-text) !important;
+    --toolbar-bgcolor: transparent !important;          /* toolbar.background #00000000 */
+    --toolbar-color: var(--esp-text) !important;
+    --toolbarbutton-icon-fill: var(--esp-text) !important;
+    --lwt-toolbar-field-background-color: var(--esp-surface) !important;
+    --lwt-toolbar-field-color: var(--esp-text) !important;
+    --lwt-toolbar-field-focus: var(--esp-elevated) !important;
+    --lwt-toolbar-field-focus-color: var(--esp-text) !important;
+    --tab-selected-bgcolor: var(--esp-tab-active) !important;
+    --tab-selected-textcolor: var(--esp-text) !important;
+    --lwt-tab-text: var(--esp-text-muted) !important;
+    --toolbar-field-border-color: var(--esp-border) !important;
+    --arrowpanel-background: var(--esp-elevated) !important;
+    --arrowpanel-color: var(--esp-text) !important;
+
+    /* --- Zen accent vars ------------------------------------------------ */
+    --zen-primary-color: var(--esp-accent) !important;
+    --zen-colors-primary: var(--esp-accent) !important;
+    --zen-main-browser-background: var(--esp-bg) !important;
+    accent-color: var(--esp-accent) !important;
+    --focus-outline-color: var(--esp-border-focus) !important;
+}
+
+/* --- Transparent window so the system blur is visible ------------------- */
+#browser,
+#navigator-toolbox,
+#titlebar,
+#TabsToolbar,
+#nav-bar,
+#zen-appcontent-navbar-container,
+.browserContainer,
+browser[type="content"] {
+    background: transparent !important;
+}
+
+/* Main app: near-black translucent glass (background #00000099) */
+#zen-main-app-wrapper {
+    background-color: var(--esp-bg) !important;
+}
+
+/* --- Sidebar (tabs pane): transparent, blur shows through --------------- */
+#zen-sidebar-splitter,
+#zen-tabbox-wrapper,
+#zen-sidebar-top-buttons {
+    background-color: transparent !important;
+}
+
+/* --- URL bar / toolbar: transparent over the glass --------------------- */
+#nav-bar {
+    color: var(--esp-text) !important;
+}
+
+#urlbar,
+#urlbar-background,
+#searchbar {
+    background-color: var(--esp-surface) !important;
+    color: var(--esp-text) !important;
+    border: 1px solid var(--esp-border) !important;
+    backdrop-filter: blur(12px) !important;
+}
+#urlbar[focused="true"] > #urlbar-background {
+    border-color: var(--esp-border-focus) !important;
+}
+#urlbar-input::placeholder,
+.searchbar-textbox::placeholder {
+    color: var(--esp-placeholder) !important;
+}
+
+/* Address-bar suggestions dropdown (elevated surface) */
+.urlbarView,
+#urlbar-results {
+    background-color: var(--esp-elevated) !important;
+    color: var(--esp-text) !important;
+}
+.urlbarView-row[selected],
+.urlbarView-row:hover {
+    background-color: var(--esp-hover) !important;
+}
+.urlbarView-title,
+.urlbarView-secondary {
+    color: var(--esp-text) !important;
+}
+
+/* --- Tabs -------------------------------------------------------------- */
+.tabbrowser-tab .tab-content {
+    color: var(--esp-text-muted) !important;
+}
+.tabbrowser-tab[selected] .tab-background {
+    background-color: var(--esp-tab-active) !important;
+    border-radius: 8px !important;
+}
+.tabbrowser-tab[selected] .tab-content {
+    color: var(--esp-text) !important;
+}
+.tabbrowser-tab:not([selected]):hover .tab-background {
+    background-color: var(--esp-ghost-hover) !important;
+    border-radius: 8px !important;
+}
+
+/* --- Menus / popups: elevated near-black + blur ------------------------ */
+menupopup,
+panel,
+.panel-arrowcontent,
+#appMenu-popup,
+#zen-media-controls-toolbar {
+    --panel-background: var(--esp-elevated) !important;
+    background-color: rgba(10, 10, 10, 0.85) !important;
+    backdrop-filter: blur(18px) !important;
+    color: var(--esp-text) !important;
+    border: 1px solid var(--esp-border) !important;
+}
+menuitem:hover,
+menu:hover,
+.subviewbutton:hover {
+    background-color: var(--esp-hover) !important;
+    color: var(--esp-text) !important;
+}
+
+/* --- Bookmarks toolbar: drop the bottom separator border ---------------- */
+#PersonalToolbar,
+#PersonalToolbar > .toolbar-items,
+#navigator-toolbox,
+#nav-bar {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+/* --- Scrollbar --------------------------------------------------------- */
+:root {
+    scrollbar-color: var(--esp-scrollbar) transparent !important;
+}

@@ -9,7 +9,8 @@
     {
         "context": "Workspace",
         "bindings": {
-            "shift shift": "file_finder::Toggle",
+            "shift shift": "pane::DeploySearch",
+            "cmd-shift-a": "command_palette::Toggle",
             "cmd-alt-g": ["task::Spawn", { "task_name": "FastAPI" }],
             "cmd-alt-w": ["task::Spawn", { "task_name": "Taskiq Worker" }],
             "cmd-alt-s": ["task::Spawn", { "task_name": "Taskiq Scheduler" }],
@@ -17,6 +18,18 @@
                 "task::Spawn",
                 { "task_name": "Stop Paydo Services" },
             ],
+        },
+    },
+    {
+        // PyCharm-style LSP navigation and hints
+        "context": "Editor",
+        "bindings": {
+            "f1": "editor::Hover",
+            "alt-f7": "editor::FindAllReferences",
+            "cmd-alt-b": "editor::GoToImplementation",
+            "cmd-alt-p": "editor::ShowSignatureHelp",
+            "cmd-alt-l": "editor::Format",
+            "cmd-alt-h": "editor::ToggleInlayHints",
         },
     },
     {

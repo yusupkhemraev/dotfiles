@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Tab</title>
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <main class="wrap">
+    <div class="clock" id="clock">--:--</div>
+    <div class="date" id="date"></div>
+
+    <form class="search" id="search" autocomplete="off">
+      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/>
+      </svg>
+      <input id="q" type="text" placeholder="Search the web" spellcheck="false" autofocus>
+    </form>
+  </main>
+
+  <script src="newtab.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* Catppuccin Espresso (Blur) — new tab page */
+:root {
+  --bg:        #0a0a0a;
+  --text:      #cad3f5;
+  --muted:     #8087a2;
+  --surface:   #181926;
+  --surface-2: #24273a;
+  --border:    #363a4f;
+  --accent:    #c6a0f6; /* mauve */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+}
+
+.clock {
+  font-size: clamp(48px, 9vw, 120px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.date {
+  color: var(--muted);
+  font-size: clamp(14px, 1.4vw, 18px);
+  margin-bottom: 36px;
+}
+
+.search {
+  position: relative;
+  width: min(560px, 90vw);
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  width: 20px;
+  height: 20px;
+  fill: var(--muted);
+  pointer-events: none;
+}
+
+#q {
+  width: 100%;
+  padding: 15px 18px 15px 50px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+#q::placeholder { color: var(--muted); }
+
+#q:focus {
+  border-color: var(--accent);
+  background: var(--surface-2);
+}

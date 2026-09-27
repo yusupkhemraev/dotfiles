@@ -128,7 +128,7 @@ plugins=(
 export PATH="$HOME/.local/bin:$PATH"
 
 # pnpm
-export PNPM_HOME="/Users/yusupkhemraev/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -220,17 +220,17 @@ zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'exter
 
 
 # The next line updates PATH for CLI.
-#if [ -f '/Users/yusupkhemraev/yandex-cloud/path.bash.inc' ]; then source '/Users/yusupkhemraev/yandex-cloud/path.bash.inc'; fi
+#if [ -f "$HOME/yandex-cloud/path.bash.inc" ]; then source "$HOME/yandex-cloud/path.bash.inc"; fi
 
 # The next line enables shell command completion for yc.
-#if [ -f '/Users/yusupkhemraev/yandex-cloud/completion.zsh.inc' ]; then source '/Users/yusupkhemraev/yandex-cloud/completion.zsh.inc'; fi
+#if [ -f "$HOME/yandex-cloud/completion.zsh.inc" ]; then source "$HOME/yandex-cloud/completion.zsh.inc"; fi
 
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 
 
-export PATH=$PATH:/Users/yusupkhemraev/.spicetify
+export PATH=$PATH:$HOME/.spicetify
 
 # Запускать Nushell как интерактивную оболочку.
 # zsh сначала настраивает окружение (.zshenv задаёт XDG_CONFIG_HOME, .zshrc — PATH),
@@ -243,10 +243,32 @@ export PATH=$PATH:/Users/yusupkhemraev/.spicetify
 #fi
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/yusupkhemraev/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
 
 # Added by GitButler installer
 eval "$(but completions zsh)"
 
+
+# paydo-api: open an encrypted environment file in $EDITOR through sops.
+# The key never leaves the ignored secrets/ directory; sops re-encrypts on exit.
+paydo-sops() {
+  local environment=${1:?usage: paydo-sops <staging|production>}
+  local root=${PAYDO_API_ROOT:-$(git rev-parse --show-toplevel 2>/dev/null)}
+  [[ -d $root/config/environments ]] || root=~/dev/paydo-api
+
+  local key=$root/secrets/$environment.age.key
+  local file=$root/config/environments/$environment.sops.env
+
+  [[ -f $key ]]  || { print -u2 "paydo-sops: no age key at $key"; return 1 }
+  [[ -f $file ]] || { print -u2 "paydo-sops: no env file at $file"; return 1 }
+
+  (cd "$root" && SOPS_AGE_KEY_FILE="$key" sops "config/environments/$environment.sops.env")
+}
+alias sops-staging='paydo-sops staging'
+alias sops-prod='paydo-sops production'
+
+
+# Added by Antigravity CLI installer
+export PATH="$HOME/.local/bin:$PATH"
